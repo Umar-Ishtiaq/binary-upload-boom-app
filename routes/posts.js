@@ -7,6 +7,8 @@ const { ensureAuth, ensureGuest } = require("../middleware/auth");
 //Post Routes - simplified for now
 router.get("/:id", ensureAuth, postsController.getPost);
 
+//here multer (upload.single('file')) is doing two things first it validates that the file is an image
+//second multer holds the image file in a temporary folder until it is uploaded to cloudinary then deletes it
 router.post("/createPost", upload.single("file"), postsController.createPost);
 
 router.put("/likePost/:id", postsController.likePost);

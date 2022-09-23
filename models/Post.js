@@ -21,9 +21,9 @@ const PostSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  user: {
+  user: { //this will take the _id of the current user as default value ref is used to reference the user
     type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
+    ref: "User",// ref is used to refer the user schema 
   },
   createdAt: {
     type: Date,
