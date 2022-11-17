@@ -2,8 +2,8 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const passport = require("passport");
-const session = require("express-session");
-const MongoStore = require("connect-mongo")(session);
+const session = require("express-session");//to keep the user logged in
+const MongoStore = require("connect-mongo")(session);//calling a function with the session as an argument to store the session on the mongodb
 const methodOverride = require("method-override");
 const flash = require("express-flash");
 const logger = require("morgan");
@@ -16,7 +16,7 @@ const commentRoutes = require("./routes/comments.js")
 require("dotenv").config({ path: "./config/.env" });
 
 // Passport config
-require("./config/passport")(passport);
+require("./config/passport")(passport);//the first part is return a function and the second is to call the function with passport passed in as the argument
 
 //Connect To Database
 connectDB();
